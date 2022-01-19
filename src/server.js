@@ -1,11 +1,11 @@
 const app = require("./index");
-
+require("dotenv").config()
 const connect = require("./configs/db");
-
-app.listen(2233, async () => {
+const port = process.env.PORT || 2000;
+app.listen(port, async () => {
   try {
     await connect();
-    console.log("Listening port 2233");
+    console.log(`Listening port ${port}`);
   } catch (e) {
     console.log("e:", e);
   }
